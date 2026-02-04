@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard — Resultados das Atividades</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="title">
+        <h1>Geometrisa AI Workshop <span class="pill" id="asOf" aria-hidden="true"></span></h1>
+        <p>Resultados das Atividades</p>
+      </div>
+
+      <div class="toolbar">
+        <img class="brandLogo" src="./logo2.png" alt="Geometrisa" />
+      </div>
+    </div>
+
+    <!-- KPIs -->
+    <div class="grid kpis">
+      <div class="card kpi kpi1">
+        <div class="label">Participantes</div>
+        <div class="value" id="kpiParticipants">–</div>
+        <div class="sub" id="kpiParticipantsSub">–</div>
+      </div>
+
+      <div class="card kpi kpi2">
+        <div class="label">Total de entregas</div>
+        <div class="value" id="kpiDeliveries">–</div>
+        <div class="sub">soma de atividades realizadas</div>
+      </div>
+
+      <div class="card kpi kpi3">
+        <div class="label">Participação completa</div>
+        <div class="value" id="kpiAllDone">–</div>
+        <div class="sub">fizeram todas as atividades</div>
+      </div>
+
+      <div class="card kpi kpi4">
+        <div class="label">Média de entrega por participante</div>
+        <div class="value" id="kpiAvg">—</div>
+        <div class="sub">média de atividades enviadas (0–4)</div>
+      </div>
+    </div>
+
+    <!-- 4 containers por atividade (2x2) -->
+    <div class="grid activities" id="activitiesGrid"></div>
+
+    <!-- Todos os participantes -->
+    <div class="card">
+      <div class="sectionTitle">
+        <h2>Todos os participantes</h2>
+        <div class="meta controls-right">
+          <span class="badge" id="rowCount"><span class="dot dot1"></span> Exibindo: –</span>
+        </div>
+      </div>
+
+      <div class="tableWrap tableTall">
+        <table>
+          <thead>
+            <tr>
+              <th>Participante</th>
+              <th class="center">Fez</th>
+              <th class="center">Atividade 1</th>
+              <th class="center">Atividade 2</th>
+              <th class="center">Atividade 3</th>
+              <th class="center">Atividade 4</th>
+            </tr>
+          </thead>
+          <tbody id="participantsBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DE LINKS -->
+  <div class="modalOverlay" id="linkModal" aria-hidden="true">
+    <div class="modalContent" data-close="0">
+      <div class="modalTitle" id="modalTitle">Nome do Participante</div>
+      <div class="modalSub" id="modalSub">Nome da Atividade</div>
+
+      <div class="modalActions">
+        <a href="#" class="btnPrimary" id="modalLink" target="_blank" rel="noopener noreferrer">
+          Abrir entrega ↗
+        </a>
+        <div id="modalEmpty" class="hint" hidden>Link não configurado.</div>
+
+        <button class="btnSecondary" id="modalClose">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+
+</html>
